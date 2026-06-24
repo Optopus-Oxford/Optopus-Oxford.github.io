@@ -49,7 +49,7 @@ description: Schedule for the Optopus Reading Group.
         {% endif %}
         <span class="date-line {% if event.canceled %}date-canceled{% endif %}">
           Week {{ event.week_number }} - {{ event.day }} {{ event.date | date: "%d/%m/%Y" }} - {{ display_time }}
-          {%- if event.canceled %} - Canceled{% endif -%}
+          {%- if event.canceled %} - Cancelled{% endif -%}
         </span>
       </div>
 

@@ -1,0 +1,59 @@
+{
+  "current": [
+    {
+      "name": "Coralia Cartis",
+      "title": "Professor",
+      "years": "20XX-Present",
+      "website": "https://www.maths.ox.ac.uk/people/coralia.cartis"
+    },
+    {
+      "name": "Sadok Jerad",
+      "title": "Postdoc",
+      "years": "2024-2026",
+      "website": "https://www.maths.ox.ac.uk/people/sadok.jerad"
+    },
+    {
+      "name": "Casey Garner",
+      "title": "Postdoc",
+      "years": "2025-2027",
+      "website": "https://scholar.google.com/citations?user=FkTj8HIAAAAJ&hl=en"
+    },
+    {
+      "name": "Karl Welzel",
+      "title": "DPhil Student",
+      "years": "2022-2026",
+      "website": "https://karl.welzel.one/"
+    },
+    {
+      "name": "Jung Eun Huh",
+      "title": "DPhil Student",
+      "years": "2024-2028",
+      "website": "https://www.maths.ox.ac.uk/people/jung.huh"
+    },
+    {
+      "name": "Daniel Cortild",
+      "title": "DPhil Student",
+      "years": "2025-2029",
+      "website": "https://www.cortild.com"
+    },
+    {
+      "name": "Joseph J. Webb",
+      "title": "DPhil Student",
+      "years": "2025-2029",
+      "website": "https://scholar.google.com/citations?user=ldlTzbYAAAAJ&hl=en"
+    },
+    {
+      "name": "Tobias Bretschneider",
+      "title": "DPhil Student",
+      "years": "2025-2029",
+      "website": "https://users.ox.ac.uk/~ball5903/"
+    }
+  ],
+  "old": [
+    {
+      "name": "Yang Liu",
+      "title": "Postdoc",
+      "years": "2024-2026"
+    }
+  ]
+}

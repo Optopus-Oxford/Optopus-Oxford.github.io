@@ -6,8 +6,8 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% unless site.enable_navbar_social and page.permalink == '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ root_url }}">
+      {% unless page.permalink == '/' %}
+        <a class="navbar-brand title font-weight-bold" href="{{ root_url }}">
           {% if site.title == 'blank' %}
             {% if site.first_name %}
               <span class="font-weight-bold">
@@ -24,7 +24,7 @@
             {{- site.title -}}
           {% endif %}
         </a>
-      {% else %}
+      {% elsif site.enable_navbar_social %}
         <!-- Social Icons -->
         <div class="navbar-brand social">{% social_links %}</div>
       {% endunless %}
@@ -66,7 +66,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    {{- p.title }}
+                    {{- p.nav_title | default: p.title }}
                     {% if page.title == p.title or has_active_child %}
                       <span class="sr-only">(current)</span>
                     {% endif %}
@@ -116,7 +116,7 @@
                       {%- endif -%}
                     "
                   >
-                    {{- p.title }}
+                    {{- p.nav_title | default: p.title }}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
                     {% endif %}
