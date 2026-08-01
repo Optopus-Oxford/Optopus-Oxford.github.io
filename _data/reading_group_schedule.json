@@ -7,7 +7,7 @@
     "term": "TT26",
     "kind": "seminar",
     "form": "Optimization Seminar",
-    "room": "Mathematical Institute, L6",
+    "room": "Maths, L6",
     "speaker": "Amir Ali Ahmadi (Princeton University, United States)",
     "title": "Disjunctive Sum of Squares"
   },
@@ -19,7 +19,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, S2.37",
+    "room": "Maths, S2.37",
     "canceled": true,
     "note": "Replaced by Amir Ali Ahmadi's talk on Monday."
   },
@@ -31,7 +31,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, S2.37",
+    "room": "Maths, S2.37",
     "speaker": "Gabriel Pereira",
     "title": "Pereira, G. B., & Goulart, P. J. (2026). Krylov Subspace Acceleration for First-Order Splitting Methods in Convex Quadratic Programming",
     "link_url": "https://doi.org/10.48550/arXiv.2511.06323"
@@ -44,7 +44,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, S1.37",
+    "room": "Maths, S1.37",
     "canceled": true
   },
   {
@@ -55,7 +55,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, N3.12",
+    "room": "Maths, N3.12",
     "speaker": "Raphael Hauser",
     "title": "Yanagi, T., Ikeda, S., Kobayashi, K., & Takano, Y. (2026). Distributionally robust optimization for recommendation selection",
     "link_url": "https://doi.org/10.48550/arXiv.2603.22090"
@@ -68,7 +68,7 @@
     "term": "TT26",
     "kind": "seminar",
     "form": "ML&DS Seminar",
-    "room": "Mathematical Institute, L3",
+    "room": "Maths, L3",
     "speaker": "Juan Peypouquet (University of Groningen, The Netherlands)",
     "title": "Acceleration of first order methods in convex optimization"
   },
@@ -80,7 +80,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, S2.37",
+    "room": "Maths, S2.37",
     "canceled": true
   },
   {
@@ -91,7 +91,7 @@
     "term": "TT26",
     "kind": "seminar",
     "form": "Optimization Seminar",
-    "room": "Mathematical Institute, L3",
+    "room": "Maths, L3",
     "speaker": "Katya Scheinberg (Georgia Institute of Technology, United States)",
     "title": "On complexity of model based derivative free optimization"
   },
@@ -103,7 +103,7 @@
     "term": "TT26",
     "kind": "seminar",
     "form": "NA Seminar",
-    "room": "Mathematical Institute, L3",
+    "room": "Maths, L3",
     "speaker": "Luis Vicente (Lehigh University, United States)",
     "title": "To be announced"
   },
@@ -115,7 +115,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, S2.37",
+    "room": "Maths, S2.37",
     "canceled": true,
     "note": "Canceled due to SIAM OP26."
   },
@@ -127,7 +127,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, S2.37",
+    "room": "Maths, S2.37",
     "speaker": "Lindon Roberts (University of Melbourne, Australia)",
     "title": "Roberts, L. (2025). Introduction to Interpolation-Based Optimization",
     "link_url": "https://doi.org/10.48550/arXiv.2510.04473"
@@ -140,7 +140,7 @@
     "term": "TT26",
     "kind": "seminar",
     "form": "Optimization Seminar",
-    "room": "Mathematical Institute, L6",
+    "room": "Maths, L6",
     "speaker": "Ruoyu Sun (Chinese University of Hong Kong, Shenzhen)",
     "title": "Understanding and Improving LLM Training via Hessian and Spectral Analysis"
   },
@@ -152,7 +152,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, N4.01",
+    "room": "Maths, N4.01",
     "speaker": "Luca Furieri (Associate Professor of Engineering Science at University of Oxford)",
     "title": "A. Martin, I. R. Manchester, L. Furieri (2026). Learning to optimize with guarantees: a complete characterization of linearly convergent algorithms",
     "link_url": "https://arxiv.org/abs/2508.00775"
@@ -165,7 +165,7 @@
     "term": "TT26",
     "kind": "reading-group",
     "form": "Reading Group",
-    "room": "Mathematical Institute, N3.12",
+    "room": "Maths, N3.12",
     "speaker": "Boris Shustin",
     "title": "B. Shustin, H. Avron (2023). Riemannian optimization with a preconditioning scheme on the generalized Stiefel manifold",
     "link_url": "https://www.sciencedirect.com/science/article/pii/S0377042722005519"
