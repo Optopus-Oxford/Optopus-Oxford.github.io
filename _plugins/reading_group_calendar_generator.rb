@@ -19,7 +19,10 @@ module ReadingGroupCalendar
         "permalink" => "/calendars/#{slug(term)}.ics",
       }
       self.ext = ".ics"
-      self.output_ext = ".ics"
+    end
+
+    def output_ext
+      ".ics"
     end
 
     private
