@@ -1,18 +1,29 @@
 # frozen_string_literal: true
 
 require "digest"
+require "date"
 require "time"
 
 module ReadingGroupCalendar
+  module ScheduleFilters
+    def schedule_day(date)
+      Date.parse(date.to_s).strftime("%A")
+    end
+
+    def schedule_week(date, start_date)
+      ((Date.parse(date.to_s) - Date.parse(start_date.to_s)).to_i / 7).floor
+    end
+  end
+
   class CalendarPage < Jekyll::PageWithoutAFile
-    def initialize(site, term, events)
+    def initialize(site, term, schedule)
       @site = site
       @base = site.source
       @dir = "calendars"
       @name = "#{slug(term)}.ics"
 
       process(@name)
-      self.content = CalendarBuilder.new(site, term, events).render
+      self.content = CalendarBuilder.new(site, term, schedule).render
       self.data = {
         "layout" => nil,
         "sitemap" => false,
@@ -36,10 +47,12 @@ module ReadingGroupCalendar
     CALENDAR_NAME = "Optopus Schedule"
     TIMEZONE = "Europe/London"
 
-    def initialize(site, term, events)
+    def initialize(site, term, schedule)
       @site = site
       @term = term
-      @events = events
+      @term_name = schedule["name"].to_s.empty? ? term : schedule["name"]
+      @start_date = schedule["start_date"]
+      @events = Array(schedule["events"])
     end
 
     def render
@@ -49,7 +62,7 @@ module ReadingGroupCalendar
         "PRODID:-//Optopus//Reading Group Schedule//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        "X-WR-CALNAME:#{escape("#{CALENDAR_NAME} #{@term}")}",
+        "X-WR-CALNAME:#{escape("#{CALENDAR_NAME} #{@term_name}")}",
         "X-WR-TIMEZONE:#{TIMEZONE}",
       ]
 
@@ -66,7 +79,7 @@ module ReadingGroupCalendar
       ends_at = starts_at + 3600
       canceled = event["canceled"]
       kind = event["kind"] == "seminar" ? "Seminar" : "Reading Group"
-      title = canceled ? "Canceled: #{kind}" : event["title"].to_s
+      title = calendar_title(event, kind, canceled)
       description = description_for(event, kind)
 
       lines = [
@@ -87,8 +100,9 @@ module ReadingGroupCalendar
     end
 
     def description_for(event, kind)
-      parts = ["Type: #{kind}", "Term: #{event["term"]}", "Week: #{event["week_number"]}"]
+      parts = ["Type: #{kind}", "Term: #{@term_name}", "Week: #{week_number(event)}"]
       parts << "Speaker: #{event["speaker"]}" if present?(event["speaker"])
+      parts << "Affiliation: #{event["speaker_affiliation"]}" if present?(event["speaker_affiliation"])
       parts << "Title: #{event["title"]}" if present?(event["title"])
       parts << "Note: #{event["note"]}" if present?(event["note"])
       parts.join("\\n")
@@ -98,8 +112,19 @@ module ReadingGroupCalendar
       value && value.to_s != ""
     end
 
+    def calendar_title(event, kind, canceled)
+      title = "[#{event["form"] || kind}]"
+      title = "#{title} #{event["speaker"]}" if present?(event["speaker"])
+      title = event["title"] if !present?(event["speaker"]) && present?(event["title"])
+      canceled ? "Canceled: #{title}" : title
+    end
+
+    def week_number(event)
+      ((Date.parse(event["date"].to_s) - Date.parse(@start_date.to_s)).to_i / 7).floor
+    end
+
     def uid_for(event)
-      source = [@site.config["url"], @site.config["baseurl"], event["term"], event["date"], event["time"], event["kind"], event["title"]].join("|")
+      source = [@site.config["url"], @site.config["baseurl"], @term_name, event["date"], event["time"], event["kind"], event["title"]].join("|")
       "#{Digest::SHA256.hexdigest(source)[0, 24]}@optopus"
     end
 
@@ -148,10 +173,24 @@ module ReadingGroupCalendar
     priority :low
 
     def generate(site)
-      schedule = Array(site.data["reading_group_schedule"])
-      schedule.group_by { |event| event["term"] }.each do |term, events|
-        site.pages << CalendarPage.new(site, term, events)
+      schedule_terms(site).each do |term, schedule|
+        site.pages << CalendarPage.new(site, term, schedule)
       end
+    end
+
+    private
+
+    def schedule_terms(site)
+      data = site.data["reading_group_schedule"]
+      if data.is_a?(Hash)
+        return data.map { |term, schedule| [term, schedule] }
+      end
+
+      Array(data)
+        .group_by { |event| event["term"] }
+        .map { |term, events| [term, { "name" => term, "events" => events }] }
     end
   end
 end
+
+Liquid::Template.register_filter(ReadingGroupCalendar::ScheduleFilters)
