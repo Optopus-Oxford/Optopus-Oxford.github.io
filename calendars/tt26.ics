@@ -1,1 +1,160 @@
-BEGIN:VCALENDAR VERSION:2.0 PRODID:-//Optopus//Reading Group Schedule//EN CALSCALE:GREGORIAN METHOD:PUBLISH X-WR-CALNAME:Optopus Schedule TT26 X-WR-TIMEZONE:Europe/London BEGIN:VEVENT UID:118df549daa391853103a42c@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260427T110000 DTEND;TZID=Europe/London:20260427T120000 SUMMARY:[Optimization Seminar] Amir Ali Ahmadi DESCRIPTION:Type: Seminar\nTerm: TT26\nWeek: 0\nSpeaker: Amir Ali Ahmadi\nA ffiliation: Princeton University\, United States\nTitle: Disjunctive Sum o f Squares LOCATION:Maths\, L6 END:VEVENT BEGIN:VEVENT UID:6c971dfc29b1864c12d5dcd3@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260428T110000 DTEND;TZID=Europe/London:20260428T120000 SUMMARY:Canceled: [Reading Group] DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 0\nNote: Replaced by Ami r Ali Ahmadi's talk on Monday. LOCATION:Maths\, S2.37 STATUS:CANCELLED END:VEVENT BEGIN:VEVENT UID:f8408216bc20b96159dc200d@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260505T110000 DTEND;TZID=Europe/London:20260505T120000 SUMMARY:[Reading Group] Gabriel Pereira DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 1\nSpeaker: Gabriel Pere ira\nTitle: Pereira\, G. B.\, & Goulart\, P. J. (2026). Krylov Subspace Ac celeration for First-Order Splitting Methods in Convex Quadratic Programmi ng LOCATION:Maths\, S2.37 URL:https://doi.org/10.48550/arXiv.2511.06323 END:VEVENT BEGIN:VEVENT UID:238c67f59f8e956a629faee6@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260512T110000 DTEND;TZID=Europe/London:20260512T120000 SUMMARY:Canceled: [Reading Group] DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 2 LOCATION:Maths\, S1.37 STATUS:CANCELLED END:VEVENT BEGIN:VEVENT UID:098d4a66885f67f74b1d55e4@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260519T110000 DTEND;TZID=Europe/London:20260519T120000 SUMMARY:[Reading Group] Raphael Hauser DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 3\nSpeaker: Raphael Haus er\nTitle: Yanagi\, T.\, Ikeda\, S.\, Kobayashi\, K.\, & Takano\, Y. (2026 ). Distributionally robust optimization for recommendation selection LOCATION:Maths\, N3.12 URL:https://doi.org/10.48550/arXiv.2603.22090 END:VEVENT BEGIN:VEVENT UID:499a76de682e160faa717bba@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260525T140000 DTEND;TZID=Europe/London:20260525T150000 SUMMARY:[ML&DS Seminar] Juan Peypouquet DESCRIPTION:Type: Seminar\nTerm: TT26\nWeek: 4\nSpeaker: Juan Peypouquet\nA ffiliation: University of Groningen\, The Netherlands\nTitle: Acceleration of first order methods in convex optimization LOCATION:Maths\, L3 END:VEVENT BEGIN:VEVENT UID:ba8811bfcc4e5c1fc56cf455@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260526T110000 DTEND;TZID=Europe/London:20260526T120000 SUMMARY:Canceled: [Reading Group] DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 4 LOCATION:Maths\, S2.37 STATUS:CANCELLED END:VEVENT BEGIN:VEVENT UID:17368336972b519a6334778b@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260526T140000 DTEND;TZID=Europe/London:20260526T150000 SUMMARY:[Optimization Seminar] Katya Scheinberg DESCRIPTION:Type: Seminar\nTerm: TT26\nWeek: 4\nSpeaker: Katya Scheinberg\n Affiliation: Georgia Institute of Technology\, United States\nTitle: On co mplexity of model based derivative free optimization LOCATION:Maths\, L3 END:VEVENT BEGIN:VEVENT UID:fa7d8af6e070bdc439ba4c31@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260528T140000 DTEND;TZID=Europe/London:20260528T150000 SUMMARY:[NA Seminar] Luis Vicente DESCRIPTION:Type: Seminar\nTerm: TT26\nWeek: 4\nSpeaker: Luis Vicente\nAffi liation: Lehigh University\, United States\nTitle: To be announced LOCATION:Maths\, L3 END:VEVENT BEGIN:VEVENT UID:103eed218683f5f5c1f1b823@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260602T110000 DTEND;TZID=Europe/London:20260602T120000 SUMMARY:Canceled: [Reading Group] DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 5\nNote: Canceled due to SIAM OP26. LOCATION:Maths\, S2.37 STATUS:CANCELLED END:VEVENT BEGIN:VEVENT UID:a8b481980e319ff26ba76bcf@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260609T110000 DTEND;TZID=Europe/London:20260609T120000 SUMMARY:[Reading Group] Lindon Roberts DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 6\nSpeaker: Lindon Rober ts\nAffiliation: University of Melbourne\, Australia\nTitle: Roberts\, L. (2025). Introduction to Interpolation-Based Optimization LOCATION:Maths\, S2.37 URL:https://doi.org/10.48550/arXiv.2510.04473 END:VEVENT BEGIN:VEVENT UID:34f0dd227d16e65935cc5285@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260609T140000 DTEND;TZID=Europe/London:20260609T150000 SUMMARY:[Optimization Seminar] Ruoyu Sun DESCRIPTION:Type: Seminar\nTerm: TT26\nWeek: 6\nSpeaker: Ruoyu Sun\nAffilia tion: Chinese University of Hong Kong\, Shenzhen\nTitle: Understanding and Improving LLM Training via Hessian and Spectral Analysis LOCATION:Maths\, L6 END:VEVENT BEGIN:VEVENT UID:211f4cb7962e1ddb6107999d@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260616T110000 DTEND;TZID=Europe/London:20260616T120000 SUMMARY:[Reading Group] Luca Furieri DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 7\nSpeaker: Luca Furieri \nAffiliation: Associate Professor of Engineering Science at University of Oxford\nTitle: A. Martin\, I. R. Manchester\, L. Furieri (2026). Learning to optimize with guarantees: a complete characterization of linearly conv ergent algorithms LOCATION:Maths\, N4.01 URL:https://arxiv.org/abs/2508.00775 END:VEVENT BEGIN:VEVENT UID:d77b76f6ef4cb81461402428@optopus DTSTAMP:20260805T160249Z DTSTART;TZID=Europe/London:20260623T110000 DTEND;TZID=Europe/London:20260623T120000 SUMMARY:[Reading Group] Boris Shustin DESCRIPTION:Type: Reading Group\nTerm: TT26\nWeek: 8\nSpeaker: Boris Shusti n\nTitle: B. Shustin\, H. Avron (2023). Riemannian optimization with a pre conditioning scheme on the generalized Stiefel manifold LOCATION:Maths\, N3.12 URL:https://www.sciencedirect.com/science/article/pii/S0377042722005519 END:VEVENT END:VCALENDAR
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Optopus//Reading Group Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Optopus Schedule TT26
+X-WR-TIMEZONE:Europe/London
+BEGIN:VEVENT
+UID:118df549daa391853103a42c@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260427T110000
+DTEND;TZID=Europe/London:20260427T120000
+SUMMARY:[Optimization Seminar] Amir Ali Ahmadi
+DESCRIPTION:Type: Seminar\nSpeaker: Amir Ali Ahmadi (Princeton University)\
+ nTitle: Disjunctive Sum of Squares
+LOCATION:Maths\, L6
+END:VEVENT
+BEGIN:VEVENT
+UID:4db1df6b53d237b37eda49be@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260428T110000
+DTEND;TZID=Europe/London:20260428T120000
+SUMMARY:Canceled: Reading Group
+DESCRIPTION:Type: Reading Group\nTitle: Reading Group\nNote: Replaced by Am
+ ir Ali Ahmadi's talk on Monday.
+LOCATION:Maths\, S2.37
+STATUS:CANCELLED
+END:VEVENT
+BEGIN:VEVENT
+UID:7d680cf692111ff7def55b7f@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260505T110000
+DTEND;TZID=Europe/London:20260505T120000
+SUMMARY:[Reading Group] Gabriel Pereira
+DESCRIPTION:Type: Reading Group\nSpeaker: Gabriel Pereira\nTitle: Krylov Su
+ bspace Acceleration for First-Order Splitting Methods in Convex Quadratic 
+ Programming
+LOCATION:Maths\, S2.37
+URL:https://doi.org/10.48550/arXiv.2511.06323
+END:VEVENT
+BEGIN:VEVENT
+UID:92aee0eee83bbf94c64eb3ae@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260512T110000
+DTEND;TZID=Europe/London:20260512T120000
+SUMMARY:Canceled: Reading Group
+DESCRIPTION:Type: Reading Group\nTitle: Reading Group
+LOCATION:Maths\, S1.37
+STATUS:CANCELLED
+END:VEVENT
+BEGIN:VEVENT
+UID:bf9dcd660e98efd32fe8cf98@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260519T110000
+DTEND;TZID=Europe/London:20260519T120000
+SUMMARY:[Reading Group] Raphael Hauser
+DESCRIPTION:Type: Reading Group\nSpeaker: Raphael Hauser\nTitle: Distributi
+ onally robust optimization for recommendation selection
+LOCATION:Maths\, N3.12
+URL:https://doi.org/10.48550/arXiv.2603.22090
+END:VEVENT
+BEGIN:VEVENT
+UID:499a76de682e160faa717bba@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260525T140000
+DTEND;TZID=Europe/London:20260525T150000
+SUMMARY:[ML&DS Seminar] Juan Peypouquet
+DESCRIPTION:Type: Seminar\nSpeaker: Juan Peypouquet (University of Groninge
+ n)\nTitle: Acceleration of first order methods in convex optimization
+LOCATION:Maths\, L3
+END:VEVENT
+BEGIN:VEVENT
+UID:155a2f9d75172ec66f2aea03@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260526T110000
+DTEND;TZID=Europe/London:20260526T120000
+SUMMARY:Canceled: Reading Group
+DESCRIPTION:Type: Reading Group\nTitle: Reading Group
+LOCATION:Maths\, S2.37
+STATUS:CANCELLED
+END:VEVENT
+BEGIN:VEVENT
+UID:17368336972b519a6334778b@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260526T140000
+DTEND;TZID=Europe/London:20260526T150000
+SUMMARY:[Optimization Seminar] Katya Scheinberg
+DESCRIPTION:Type: Seminar\nSpeaker: Katya Scheinberg (Georgia Institute of 
+ Technology)\nTitle: On complexity of model based derivative free optimizat
+ ion
+LOCATION:Maths\, L3
+END:VEVENT
+BEGIN:VEVENT
+UID:fa7d8af6e070bdc439ba4c31@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260528T140000
+DTEND;TZID=Europe/London:20260528T150000
+SUMMARY:[NA Seminar] Luis Vicente
+DESCRIPTION:Type: Seminar\nSpeaker: Luis Vicente (Lehigh University)\nTitle
+ : TBA
+LOCATION:Maths\, L3
+END:VEVENT
+BEGIN:VEVENT
+UID:e547c1d029828ddcfc464763@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260602T110000
+DTEND;TZID=Europe/London:20260602T120000
+SUMMARY:Canceled: Reading Group
+DESCRIPTION:Type: Reading Group\nTitle: Reading Group\nNote: Canceled due t
+ o SIAM OP26.
+LOCATION:Maths\, S2.37
+STATUS:CANCELLED
+END:VEVENT
+BEGIN:VEVENT
+UID:6802f9dac76cdc75c52ce5f8@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260609T110000
+DTEND;TZID=Europe/London:20260609T120000
+SUMMARY:[Reading Group] Lindon Roberts
+DESCRIPTION:Type: Reading Group\nSpeaker: Lindon Roberts (University of Mel
+ bourne)\nTitle: Introduction to Interpolation-Based Optimization
+LOCATION:Maths\, S2.37
+URL:https://doi.org/10.48550/arXiv.2510.04473
+END:VEVENT
+BEGIN:VEVENT
+UID:34f0dd227d16e65935cc5285@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260609T140000
+DTEND;TZID=Europe/London:20260609T150000
+SUMMARY:[Optimization Seminar] Ruoyu Sun
+DESCRIPTION:Type: Seminar\nSpeaker: Ruoyu Sun (Chinese University of Hong K
+ ong\, Shenzhen)\nTitle: Understanding and Improving LLM Training via Hessi
+ an and Spectral Analysis
+LOCATION:Maths\, L6
+END:VEVENT
+BEGIN:VEVENT
+UID:29591296a275d52838b444c8@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260616T110000
+DTEND;TZID=Europe/London:20260616T120000
+SUMMARY:[Reading Group] Luca Furieri
+DESCRIPTION:Type: Reading Group\nSpeaker: Luca Furieri (Engineering Science
+ \, University of Oxford)\nTitle: Learning to optimize with guarantees: a c
+ omplete characterization of linearly convergent algorithms
+LOCATION:Maths\, N4.01
+URL:https://arxiv.org/abs/2508.00775
+END:VEVENT
+BEGIN:VEVENT
+UID:605977fe9c0cf6c6abdf0e7a@optopus
+DTSTAMP:20260822T173950Z
+DTSTART;TZID=Europe/London:20260623T110000
+DTEND;TZID=Europe/London:20260623T120000
+SUMMARY:[Reading Group] Boris Shustin
+DESCRIPTION:Type: Reading Group\nSpeaker: Boris Shustin\nTitle: Riemannian 
+ optimization with a preconditioning scheme on the generalized Stiefel mani
+ fold
+LOCATION:Maths\, N3.12
+URL:https://www.sciencedirect.com/science/article/pii/S0377042722005519
+END:VEVENT
+END:VCALENDAR
