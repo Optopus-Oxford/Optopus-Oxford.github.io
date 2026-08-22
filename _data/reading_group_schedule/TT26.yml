@@ -7,7 +7,7 @@ events:
     form: Optimization Seminar
     room: Maths, L6
     speaker: Amir Ali Ahmadi
-    speaker_affiliation: Princeton University, United States
+    speaker_affiliation: Princeton University
     title: Disjunctive Sum of Squares
   - date: "2026-04-28"
     time: "11:00"
@@ -15,6 +15,7 @@ events:
     form: Reading Group
     room: Maths, S2.37
     canceled: true
+    title: Reading Group
     note: Replaced by Amir Ali Ahmadi's talk on Monday.
   - date: "2026-05-05"
     time: "11:00"
@@ -23,14 +24,18 @@ events:
     room: Maths, S2.37
     speaker: Gabriel Pereira
     speaker_affiliation:
-    title: Pereira, G. B., & Goulart, P. J. (2026). Krylov Subspace Acceleration for First-Order Splitting Methods in Convex Quadratic Programming
+    title: Krylov Subspace Acceleration for First-Order Splitting Methods in Convex Quadratic Programming
     link_url: https://doi.org/10.48550/arXiv.2511.06323
+    refs:
+      - label: (Pereira & Goulart, 2026)
+        url: https://doi.org/10.48550/arXiv.2511.06323
   - date: "2026-05-12"
     time: "11:00"
     kind: reading-group
     form: Reading Group
     room: Maths, S1.37
     canceled: true
+    title: Reading Group
   - date: "2026-05-19"
     time: "11:00"
     kind: reading-group
@@ -38,15 +43,18 @@ events:
     room: Maths, N3.12
     speaker: Raphael Hauser
     speaker_affiliation:
-    title: Yanagi, T., Ikeda, S., Kobayashi, K., & Takano, Y. (2026). Distributionally robust optimization for recommendation selection
+    title: Distributionally robust optimization for recommendation selection
     link_url: https://doi.org/10.48550/arXiv.2603.22090
+    refs:
+      - label: (Yanagi et al., 2026)
+        url: https://doi.org/10.48550/arXiv.2603.22090
   - date: "2026-05-25"
     time: "14:00"
     kind: seminar
     form: ML&DS Seminar
     room: Maths, L3
     speaker: Juan Peypouquet
-    speaker_affiliation: University of Groningen, The Netherlands
+    speaker_affiliation: University of Groningen
     title: Acceleration of first order methods in convex optimization
   - date: "2026-05-26"
     time: "11:00"
@@ -54,13 +62,14 @@ events:
     form: Reading Group
     room: Maths, S2.37
     canceled: true
+    title: Reading Group
   - date: "2026-05-26"
     time: "14:00"
     kind: seminar
     form: Optimization Seminar
     room: Maths, L3
     speaker: Katya Scheinberg
-    speaker_affiliation: Georgia Institute of Technology, United States
+    speaker_affiliation: Georgia Institute of Technology
     title: On complexity of model based derivative free optimization
   - date: "2026-05-28"
     time: "14:00"
@@ -68,7 +77,7 @@ events:
     form: NA Seminar
     room: Maths, L3
     speaker: Luis Vicente
-    speaker_affiliation: Lehigh University, United States
+    speaker_affiliation: Lehigh University
     title: To be announced
   - date: "2026-06-02"
     time: "11:00"
@@ -76,6 +85,7 @@ events:
     form: Reading Group
     room: Maths, S2.37
     canceled: true
+    title: Reading Group
     note: Canceled due to SIAM OP26.
   - date: "2026-06-09"
     time: "11:00"
@@ -83,9 +93,12 @@ events:
     form: Reading Group
     room: Maths, S2.37
     speaker: Lindon Roberts
-    speaker_affiliation: University of Melbourne, Australia
-    title: Roberts, L. (2025). Introduction to Interpolation-Based Optimization
+    speaker_affiliation: University of Melbourne
+    title: Introduction to Interpolation-Based Optimization
     link_url: https://doi.org/10.48550/arXiv.2510.04473
+    refs:
+      - label: (Roberts, 2025)
+        url: https://doi.org/10.48550/arXiv.2510.04473
   - date: "2026-06-09"
     time: "14:00"
     kind: seminar
@@ -100,9 +113,12 @@ events:
     form: Reading Group
     room: Maths, N4.01
     speaker: Luca Furieri
-    speaker_affiliation: Associate Professor of Engineering Science at University of Oxford
-    title: "A. Martin, I. R. Manchester, L. Furieri (2026). Learning to optimize with guarantees: a complete characterization of linearly convergent algorithms"
+    speaker_affiliation: Engineering Science, University of Oxford
+    title: "Learning to optimize with guarantees: a complete characterization of linearly convergent algorithms"
     link_url: https://arxiv.org/abs/2508.00775
+    refs:
+      - label: (Martin et al., 2026)
+        url: https://arxiv.org/abs/2508.00775
   - date: "2026-06-23"
     time: "11:00"
     kind: reading-group
@@ -110,5 +126,8 @@ events:
     room: Maths, N3.12
     speaker: Boris Shustin
     speaker_affiliation:
-    title: B. Shustin, H. Avron (2023). Riemannian optimization with a preconditioning scheme on the generalized Stiefel manifold
+    title: Riemannian optimization with a preconditioning scheme on the generalized Stiefel manifold
     link_url: https://www.sciencedirect.com/science/article/pii/S0377042722005519
+    refs:
+      - label: (Shustin & Avron, 2023)
+        url: https://www.sciencedirect.com/science/article/pii/S0377042722005519

@@ -1,0 +1,67 @@
+name: MT26
+start_date: "2026-10-11"
+events:
+  - date: "2026-10-13"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker: Everyone??
+    speaker_affiliation:
+    title: Short Research Presentations
+  - date: "2026-10-20"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker:
+    speaker_affiliation:
+    title:
+  - date: "2026-10-27"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker:
+    speaker_affiliation:
+    title:
+  - date: "2026-11-03"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker:
+    speaker_affiliation:
+    title:
+  - date: "2026-11-10"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker:
+    speaker_affiliation:
+    title:
+  - date: "2026-11-17"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker:
+    speaker_affiliation:
+    title:
+  - date: "2026-11-24"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker:
+    speaker_affiliation:
+    title:
+  - date: "2026-12-01"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, S2.37
+    speaker:
+    speaker_affiliation:
+    title:

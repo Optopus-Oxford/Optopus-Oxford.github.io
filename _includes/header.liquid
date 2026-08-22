@@ -1,4 +1,11 @@
 <header>
+  <style>
+    :root {
+      --global-code-bg-color: rgba(0, 33, 71, 0.05);
+      --global-hover-color: #002147;
+      --global-theme-color: #002147;
+    }
+  </style>
   {% assign root_url = '/' %}
   {% if site.baseurl and site.baseurl != '' and site.baseurl != '/' %}
     {% assign root_url = site.baseurl | append: '/' %}

@@ -11,7 +11,12 @@ module ReadingGroupCalendar
     end
 
     def schedule_week(date, start_date)
-      ((Date.parse(date.to_s) - Date.parse(start_date.to_s)).to_i / 7).floor
+      ((Date.parse(date.to_s) - Date.parse(start_date.to_s)).to_i / 7).floor + 1
+    end
+
+    def schedule_title(title)
+      normalized = title.to_s.strip
+      normalized.empty? || normalized.downcase == "to be announced" ? "TBA" : normalized
     end
   end
 
@@ -81,6 +86,7 @@ module ReadingGroupCalendar
       kind = event["kind"] == "seminar" ? "Seminar" : "Reading Group"
       title = calendar_title(event, kind, canceled)
       description = description_for(event, kind)
+      url = event["link_url"] || refs_for(event).first&.fetch("url", nil)
 
       lines = [
         "BEGIN:VEVENT",
@@ -94,16 +100,15 @@ module ReadingGroupCalendar
       ]
 
       lines << "STATUS:CANCELLED" if canceled
-      lines << "URL:#{event["link_url"]}" if event["link_url"]
+      lines << "URL:#{url}" if url
       lines << "END:VEVENT"
       lines
     end
 
     def description_for(event, kind)
-      parts = ["Type: #{kind}", "Term: #{@term_name}", "Week: #{week_number(event)}"]
-      parts << "Speaker: #{event["speaker"]}" if present?(event["speaker"])
-      parts << "Affiliation: #{event["speaker_affiliation"]}" if present?(event["speaker_affiliation"])
-      parts << "Title: #{event["title"]}" if present?(event["title"])
+      parts = ["Type: #{kind}"]
+      parts << "Speaker: #{speaker_for_description(event)}" if present?(event["speaker"])
+      parts << "Title: #{title_for_description(event)}"
       parts << "Note: #{event["note"]}" if present?(event["note"])
       parts.join("\\n")
     end
@@ -112,15 +117,38 @@ module ReadingGroupCalendar
       value && value.to_s != ""
     end
 
+    def speaker_for_description(event)
+      speaker = event["speaker"].to_s
+      return speaker unless present?(event["speaker_affiliation"])
+
+      "#{speaker} (#{event["speaker_affiliation"]})"
+    end
+
+    def title_for_description(event)
+      normalized_title(event["title"])
+    end
+
     def calendar_title(event, kind, canceled)
       title = "[#{event["form"] || kind}]"
       title = "#{title} #{event["speaker"]}" if present?(event["speaker"])
-      title = event["title"] if !present?(event["speaker"]) && present?(event["title"])
+      title = title_for_description(event) if !present?(event["speaker"])
       canceled ? "Canceled: #{title}" : title
     end
 
+    def normalized_title(title)
+      normalized = title.to_s.strip
+      normalized.empty? || normalized.downcase == "to be announced" ? "TBA" : normalized
+    end
+
     def week_number(event)
-      ((Date.parse(event["date"].to_s) - Date.parse(@start_date.to_s)).to_i / 7).floor
+      ((Date.parse(event["date"].to_s) - Date.parse(@start_date.to_s)).to_i / 7).floor + 1
+    end
+
+    def refs_for(event)
+      refs = Array(event["refs"])
+      return refs unless refs.empty? && present?(event["link_url"])
+
+      [{ "label" => "Link", "url" => event["link_url"] }]
     end
 
     def uid_for(event)

@@ -37,8 +37,8 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
   about work published since the last such session.
 - _Paper Discussion:_ This is the main purpose of the reading group. The presenter selects a paper and communicates it
   with the organizers one week ahead of the discussion. The paper is then circulated to all the members, who can read it
-  before the discussion session. The session is then dedicated to walking the members through the paper, and its purpose
-  is to spark discussions about the topic at hand. The presenter should ideally not be an author of the work.
+  before the discussion session. The session is dedicated to walking the members through the paper and spark discussions
+  about the topic at hand. The presenter should ideally not be an author of the work.
 - _Research Presentations:_ This format is primarily aimed at external presenters. The timeframe of the presentation is
   1h, including questions. The goal is however to generate a discussion with the audience, so typically a prepared
   30-minute presentation is more than enough.
