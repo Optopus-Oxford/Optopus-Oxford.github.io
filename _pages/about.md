@@ -29,6 +29,10 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
 
 **Research Interests**: Nonconvex Optimization, Global Optimization, and Tensor Optimization.
 
+<p>
+  <a class="mailing-list-button" href="mailto:optimisation-reading-group-subscribe@maths.ox.ac.uk?subject=Subscribe">Subscribe to Mailing List</a>
+</p>
+
 <div class="profile-clear"></div>
 
 **Presentation Formats:** The Reading Group encapsulates many different formats of presentations:
@@ -54,6 +58,23 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
 
   .profile-clear {
     clear: both;
+  }
+
+  .mailing-list-button {
+    display: inline-block;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--global-theme-color);
+    border-radius: 4px;
+    color: var(--global-theme-color);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .mailing-list-button:hover,
+  .mailing-list-button:focus {
+    background: var(--global-theme-color);
+    color: var(--global-bg-color);
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {
