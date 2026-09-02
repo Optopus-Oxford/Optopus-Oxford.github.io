@@ -7,7 +7,7 @@ nav_order: 1
 description: Schedule for the Optopus Reading Group.
 ---
 
-{% assign schedule_terms = site.data.reading_group_schedule %}
+{% assign schedule_terms = site.data.reading_group_schedule | schedule_terms_by_start_date %}
 
 <div class="schedule-controls" aria-label="Schedule filters">
   <label>
@@ -17,7 +17,20 @@ description: Schedule for the Optopus Reading Group.
         {% assign term_name = term[0] %}
         {% assign calendar_slug = term_name | downcase %}
         {% assign calendar_url = '/calendars/' | append: calendar_slug | append: '.ics' | relative_url %}
-        <option value="{{ term_name }}" data-calendar-url="{{ calendar_url }}">{{ term_name }}</option>
+        {% assign term_schedule = term[1] %}
+        {% assign term_identifier = term_name | append: ' ' | append: term_schedule.name | upcase %}
+        {% assign show_week_numbers = true %}
+        {% if term_identifier contains 'LV' %}
+          {% assign show_week_numbers = false %}
+        {% endif %}
+        <option
+          value="{{ term_name }}"
+          data-calendar-url="{{ calendar_url }}"
+          data-start-date="{{ term_schedule.start_date }}"
+          data-show-week-numbers="{{ show_week_numbers }}"
+        >
+          {{ term_name }}
+        </option>
       {% endfor %}
     </select>
   </label>
@@ -68,7 +81,7 @@ description: Schedule for the Optopus Reading Group.
   <table class="schedule-table">
     <thead>
       <tr>
-        <th scope="col">Week</th>
+        <th scope="col" data-week-column>Week</th>
         <th scope="col">Date</th>
         <th scope="col">Talk</th>
         <th scope="col">Speaker</th>
@@ -78,15 +91,26 @@ description: Schedule for the Optopus Reading Group.
       {% for schedule_term in schedule_terms %}
         {% assign term_name = schedule_term[0] %}
         {% assign term_schedule = schedule_term[1] %}
+        {% assign term_identifier = term_name | append: ' ' | append: term_schedule.name | upcase %}
+        {% assign show_week_numbers = true %}
+        {% if term_identifier contains 'LV' %}
+          {% assign show_week_numbers = false %}
+        {% endif %}
         {% for event in term_schedule.events %}
-        {% assign week_number = event.date | schedule_week: term_schedule.start_date %}
+        {% if show_week_numbers %}
+          {% assign week_number = event.date | schedule_week: term_schedule.start_date %}
+        {% endif %}
         <tr
           class="{% if event.canceled %}is-cancelled{% endif %} {% if event.canceled and event.kind == 'reading-group' %}is-cancelled-rg{% endif %}"
           data-term="{{ term_name }}"
           data-kind="{{ event.kind }}"
         >
-          <td data-label="Week">
-            <span class="week-code">{{ week_number }}</span>
+          <td data-label="Week" data-week-column>
+            {% if show_week_numbers %}
+              <span class="week-code">{{ week_number }}</span>
+            {% else %}
+              <span class="muted"></span>
+            {% endif %}
           </td>
           <td data-label="Date">
             <span class="date-time-code">{{ event.date | date: "%a %d/%m" }}, {{ event.time }}</span>
@@ -145,12 +169,14 @@ description: Schedule for the Optopus Reading Group.
   (() => {
     const termFilter = document.getElementById("term-filter");
     const kindFilter = document.getElementById("kind-filter");
+    const scheduleTable = document.querySelector(".schedule-table");
     const rows = Array.from(document.querySelectorAll(".schedule-table tbody tr"));
     const emptyMessage = document.querySelector("[data-empty-message]");
     const subscribeButton = document.querySelector("[data-subscribe-open]");
     const subscribeModal = document.querySelector("[data-subscribe-modal]");
     const closeSubscribeButton = document.querySelector("[data-subscribe-close]");
     const providerSelect = document.getElementById("calendar-provider");
+    const subscribeTitle = document.getElementById("subscribe-title");
     const subscribeSteps = document.querySelector("[data-subscribe-steps]");
     const subscribeUrlInput = document.querySelector("[data-subscribe-url]");
     const copySubscribeButton = document.querySelector("[data-copy-subscribe-url]");
@@ -176,12 +202,84 @@ description: Schedule for the Optopus Reading Group.
       ],
     };
 
-    const selectedCalendarUrl = () => {
-      const selectedOption = termFilter.options[termFilter.selectedIndex];
-      return new URL(selectedOption.dataset.calendarUrl, window.location.href).href;
+    const termOptions = Array.from(termFilter.options);
+
+    const parseLocalDate = (dateValue) => {
+      const parts = dateValue.split("-").map(Number);
+      if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    };
+
+    const todayLocalDate = () => {
+      const now = new Date();
+      return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    };
+
+    const selectedOption = () => termFilter.options[termFilter.selectedIndex];
+
+    const selectedCalendarUrl = () => new URL(selectedOption().dataset.calendarUrl, window.location.href).href;
+
+    const selectedTermName = () => selectedOption().textContent.trim();
+
+    const selectedTermFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const term = params.get("term");
+      return termOptions.some((option) => option.value === term) ? term : null;
+    };
+
+    const selectedKindFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const kind = params.get("activity");
+      return Array.from(kindFilter.options).some((option) => option.value === kind) ? kind : null;
+    };
+
+    const persistFilters = () => {
+      const url = new URL(window.location.href);
+      url.searchParams.set("term", termFilter.value);
+      url.searchParams.set("activity", kindFilter.value);
+      window.history.replaceState({}, "", url);
+    };
+
+    const sortTermOptions = () => {
+      termOptions
+        .sort((firstOption, secondOption) => {
+          const firstStartDate = parseLocalDate(firstOption.dataset.startDate) || new Date(9999, 11, 31);
+          const secondStartDate = parseLocalDate(secondOption.dataset.startDate) || new Date(9999, 11, 31);
+
+          return secondStartDate - firstStartDate || secondOption.value.localeCompare(firstOption.value);
+        })
+        .forEach((option) => termFilter.append(option));
+    };
+
+    const selectDefaultTerm = () => {
+      const urlTerm = selectedTermFromUrl();
+      if (urlTerm) {
+        termFilter.value = urlTerm;
+        return;
+      }
+
+      const selectionThreshold = todayLocalDate();
+      selectionThreshold.setDate(selectionThreshold.getDate() + 7);
+
+      const defaultOption = termOptions.reduce((candidate, option) => {
+        const startDate = parseLocalDate(option.dataset.startDate);
+        if (!startDate || startDate > selectionThreshold) return candidate;
+        if (!candidate) return option;
+
+        const candidateStartDate = parseLocalDate(candidate.dataset.startDate);
+        return startDate > candidateStartDate ? option : candidate;
+      }, null);
+
+      termFilter.value = defaultOption ? defaultOption.value : termOptions[0].value;
+    };
+
+    const selectDefaultKind = () => {
+      kindFilter.value = selectedKindFromUrl() || "all";
     };
 
     const renderSubscribeModal = () => {
+      subscribeTitle.textContent = `Subscribe to ${selectedTermName()} calendar`;
       subscribeUrlInput.value = selectedCalendarUrl();
       subscribeSteps.replaceChildren(
         ...providerSteps[providerSelect.value].map((step) => {
@@ -206,7 +304,10 @@ description: Schedule for the Optopus Reading Group.
     const updateSchedule = () => {
       const selectedTerm = termFilter.value;
       const selectedKind = kindFilter.value;
+      const showWeekNumbers = selectedOption().dataset.showWeekNumbers === "true";
       let visibleCount = 0;
+
+      scheduleTable.classList.toggle("has-no-week-column", !showWeekNumbers);
 
       rows.forEach((row) => {
         const termMatches = row.dataset.term === selectedTerm;
@@ -220,8 +321,14 @@ description: Schedule for the Optopus Reading Group.
       emptyMessage.hidden = visibleCount > 0;
     };
 
-    termFilter.addEventListener("change", updateSchedule);
-    kindFilter.addEventListener("change", updateSchedule);
+    termFilter.addEventListener("change", () => {
+      persistFilters();
+      updateSchedule();
+    });
+    kindFilter.addEventListener("change", () => {
+      persistFilters();
+      updateSchedule();
+    });
     termFilter.addEventListener("change", renderSubscribeModal);
     providerSelect.addEventListener("change", renderSubscribeModal);
     subscribeButton.addEventListener("click", openSubscribeModal);
@@ -247,6 +354,9 @@ description: Schedule for the Optopus Reading Group.
       }
     });
 
+    sortTermOptions();
+    selectDefaultTerm();
+    selectDefaultKind();
     updateSchedule();
   })();
 </script>
@@ -427,6 +537,10 @@ description: Schedule for the Optopus Reading Group.
 
   .schedule-table tbody tr:hover {
     background: rgba(0, 0, 0, 0.03);
+  }
+
+  .schedule-table.has-no-week-column [data-week-column] {
+    display: none;
   }
 
   .schedule-table td:first-child,

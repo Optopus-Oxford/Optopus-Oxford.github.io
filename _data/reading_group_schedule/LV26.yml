@@ -1,0 +1,11 @@
+name: LV26
+start_date: "2026-06-22"
+events:
+  - date: "2026-09-02"
+    time: "11:00"
+    kind: seminar
+    form: AI Hub Conference
+    room: Maths, L1
+    speaker: Coralia Cartis
+    speaker_affiliation: University of Oxford
+    title: "Towards understanding feature learning: low-rank functions and data properties"

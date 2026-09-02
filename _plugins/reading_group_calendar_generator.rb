@@ -18,6 +18,28 @@ module ReadingGroupCalendar
       normalized = title.to_s.strip
       normalized.empty? || normalized.downcase == "to be announced" ? "TBA" : normalized
     end
+
+    def schedule_terms_by_start_date(terms)
+      term_entries = if terms.is_a?(Hash)
+                       terms.map { |term, schedule| [term, schedule] }
+                     else
+                       Array(terms)
+                     end
+
+      term_entries.sort do |(first_term, first_schedule), (second_term, second_schedule)|
+        first_start_date = start_date_for_sort(first_schedule)
+        second_start_date = start_date_for_sort(second_schedule)
+
+        date_order = second_start_date <=> first_start_date
+        date_order.zero? ? second_term.to_s <=> first_term.to_s : date_order
+      end
+    end
+
+    def start_date_for_sort(schedule)
+      Date.parse(schedule["start_date"].to_s)
+    rescue ArgumentError
+      Date.new(1, 1, 1)
+    end
   end
 
   class CalendarPage < Jekyll::PageWithoutAFile
