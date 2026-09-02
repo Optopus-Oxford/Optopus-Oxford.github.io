@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Optopus//Reading Group Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Optopus Schedule LV26
+X-WR-TIMEZONE:Europe/London
+BEGIN:VEVENT
+UID:c39abd81bd0161779e99a212@optopus
+DTSTAMP:20260902T151813Z
+DTSTART;TZID=Europe/London:20260902T110000
+DTEND;TZID=Europe/London:20260902T120000
+SUMMARY:[AI Hub Conference] Coralia Cartis
+DESCRIPTION:Type: Seminar\nSpeaker: Coralia Cartis (University of Oxford)\n
+ Title: Towards understanding feature learning: low-rank functions and data
+  properties
+LOCATION:Maths\, L1
+END:VEVENT
+END:VCALENDAR
