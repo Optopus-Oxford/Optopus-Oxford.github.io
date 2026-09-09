@@ -44,7 +44,8 @@ description: Schedule for the Optopus Reading Group.
     </select>
   </label>
 
-  <button class="subscribe-button" type="button" data-subscribe-open>Subscribe</button>
+<button class="subscribe-button" type="button" data-subscribe-open>Subscribe</button>
+
 </div>
 
 <div class="subscribe-modal" data-subscribe-modal hidden>
@@ -72,6 +73,7 @@ description: Schedule for the Optopus Reading Group.
         <button type="button" data-copy-subscribe-url>Copy</button>
       </div>
     </label>
+
   </div>
 </div>
 
@@ -135,10 +137,52 @@ description: Schedule for the Optopus Reading Group.
                   {% else %}
                     {{ talk_title }}
                   {% endif %}
+                  {% if event.abstract and event.abstract != '' %}
+                    {% assign abstract_modal_id = term_name | slugify | append: '-abstract-' | append: forloop.index %}
+                    <button
+                      class="talk-info-button"
+                      type="button"
+                      aria-label="Show abstract for {{ talk_title | escape }}"
+                      aria-controls="{{ abstract_modal_id }}"
+                      data-abstract-open="{{ abstract_modal_id }}"
+                    >
+                      i
+                    </button>
+                  {% endif %}
                   {% for ref in event.refs %}
                     <a class="talk-ref" href="{{ ref.url }}">{{ ref.label }}</a>
                   {% endfor %}
                 </span>
+                {% if event.abstract and event.abstract != '' %}
+                  <div class="abstract-modal" id="{{ abstract_modal_id }}" data-abstract-modal hidden>
+                    <div class="abstract-dialog" role="dialog" aria-modal="true" aria-labelledby="{{ abstract_modal_id }}-title">
+                      <div class="abstract-header">
+                        <h2 id="{{ abstract_modal_id }}-title">{{ talk_title }}</h2>
+                        <button
+                          class="abstract-close"
+                          type="button"
+                          aria-label="Close abstract"
+                          data-abstract-close
+                        >
+                          &times;
+                        </button>
+                      </div>
+                      <div class="abstract-content">
+                        <p>
+                          <strong>Speaker:</strong>
+                          {{ event.speaker }}
+                          {% if event.speaker_affiliation and event.speaker_affiliation != '' %}
+                            ({{ event.speaker_affiliation }})
+                          {% endif %}
+                        </p>
+                        <p><strong>Abstract:</strong> {{ event.abstract }}</p>
+                        {% if event.speaker_bio and event.speaker_bio != '' %}
+                          <p><strong>Speaker Bio:</strong> {{ event.speaker_bio }}</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
                 {% if event.canceled and event.note %}
                   <span class="talk-note">{{ event.note }}</span>
                 {% endif %}
@@ -175,6 +219,8 @@ description: Schedule for the Optopus Reading Group.
     const subscribeButton = document.querySelector("[data-subscribe-open]");
     const subscribeModal = document.querySelector("[data-subscribe-modal]");
     const closeSubscribeButton = document.querySelector("[data-subscribe-close]");
+    const abstractButtons = Array.from(document.querySelectorAll("[data-abstract-open]"));
+    const abstractModals = Array.from(document.querySelectorAll("[data-abstract-modal]"));
     const providerSelect = document.getElementById("calendar-provider");
     const subscribeTitle = document.getElementById("subscribe-title");
     const subscribeSteps = document.querySelector("[data-subscribe-steps]");
@@ -301,6 +347,28 @@ description: Schedule for the Optopus Reading Group.
       subscribeButton.focus();
     };
 
+    const closeAbstractModal = (modal, restoreFocus = true) => {
+      modal.hidden = true;
+
+      if (!restoreFocus) return;
+
+      const opener = document.querySelector(`[data-abstract-open="${modal.id}"]`);
+      if (opener) opener.focus();
+    };
+
+    const openAbstractModal = (button) => {
+      const modal = document.getElementById(button.dataset.abstractOpen);
+      if (!modal) return;
+
+      abstractModals.forEach((candidate) => {
+        if (candidate !== modal && !candidate.hidden) closeAbstractModal(candidate, false);
+      });
+
+      modal.hidden = false;
+      const closeButton = modal.querySelector("[data-abstract-close]");
+      if (closeButton) closeButton.focus();
+    };
+
     const updateSchedule = () => {
       const selectedTerm = termFilter.value;
       const selectedKind = kindFilter.value;
@@ -336,8 +404,26 @@ description: Schedule for the Optopus Reading Group.
     subscribeModal.addEventListener("click", (event) => {
       if (event.target === subscribeModal) closeSubscribeModal();
     });
+    abstractButtons.forEach((button) => {
+      button.addEventListener("click", () => openAbstractModal(button));
+    });
+    abstractModals.forEach((modal) => {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeAbstractModal(modal);
+      });
+
+      const closeButton = modal.querySelector("[data-abstract-close]");
+      if (closeButton) {
+        closeButton.addEventListener("click", () => closeAbstractModal(modal));
+      }
+    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && !subscribeModal.hidden) closeSubscribeModal();
+      if (event.key === "Escape") {
+        abstractModals.forEach((modal) => {
+          if (!modal.hidden) closeAbstractModal(modal);
+        });
+      }
     });
     copySubscribeButton.addEventListener("click", async () => {
       const initialText = copySubscribeButton.textContent;
@@ -411,6 +497,67 @@ description: Schedule for the Optopus Reading Group.
 
   .subscribe-modal[hidden] {
     display: none;
+  }
+
+  .abstract-modal {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.42);
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    padding: 1rem;
+    position: fixed;
+    z-index: 1100;
+  }
+
+  .abstract-modal[hidden] {
+    display: none;
+  }
+
+  .abstract-dialog {
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.24);
+    color: var(--global-text-color);
+    max-height: min(80vh, 42rem);
+    max-width: 42rem;
+    overflow: auto;
+    padding: 1rem;
+    width: min(100%, 42rem);
+  }
+
+  .abstract-header {
+    align-items: start;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+  }
+
+  .abstract-header h2 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .abstract-close {
+    background: transparent;
+    border: 0;
+    color: var(--global-text-color);
+    cursor: pointer;
+    font-size: 1.6rem;
+    line-height: 1;
+    padding: 0.1rem 0.2rem;
+  }
+
+  .abstract-content p {
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+  }
+
+  .abstract-content p:last-child {
+    margin-bottom: 0;
   }
 
   .subscribe-dialog {
@@ -588,6 +735,32 @@ description: Schedule for the Optopus Reading Group.
 
   .talk-title {
     line-height: 1.45;
+  }
+
+  .talk-info-button {
+    align-items: center;
+    background: transparent;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 50%;
+    color: var(--global-theme-color);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 0.72rem;
+    font-weight: 700;
+    height: 1.15rem;
+    justify-content: center;
+    line-height: 1;
+    margin-left: 0.25rem;
+    padding: 0;
+    vertical-align: text-top;
+    width: 1.15rem;
+  }
+
+  .talk-info-button:hover,
+  .talk-info-button:focus {
+    background: var(--global-theme-color);
+    border-color: var(--global-theme-color);
+    color: #fff;
   }
 
   .talk-copy {
