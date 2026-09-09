@@ -7,7 +7,7 @@ X-WR-CALNAME:Optopus Schedule LV26
 X-WR-TIMEZONE:Europe/London
 BEGIN:VEVENT
 UID:c39abd81bd0161779e99a212@optopus
-DTSTAMP:20260902T151813Z
+DTSTAMP:20260909T092824Z
 DTSTART;TZID=Europe/London:20260902T110000
 DTEND;TZID=Europe/London:20260902T120000
 SUMMARY:[AI Hub Conference] Coralia Cartis
@@ -15,5 +15,16 @@ DESCRIPTION:Type: Seminar\nSpeaker: Coralia Cartis (University of Oxford)\n
  Title: Towards understanding feature learning: low-rank functions and data
   properties
 LOCATION:Maths\, L1
+END:VEVENT
+BEGIN:VEVENT
+UID:1ef5f15a9cd45ac99db45643@optopus
+DTSTAMP:20260909T092824Z
+DTSTART;TZID=Europe/London:20260915T140000
+DTEND;TZID=Europe/London:20260915T150000
+SUMMARY:[CIMDA Seminar] Hong Yan
+DESCRIPTION:Type: Seminar\nSpeaker: Hong Yan (City University of Hong Kong)
+ \nTitle: Efficient Machine Learning Methods Based on Matrix and Tensor CUR
+  Decomposition
+LOCATION:Maths\, L3
 END:VEVENT
 END:VCALENDAR
