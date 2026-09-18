@@ -67,6 +67,7 @@ module ReadingGroupCalendar
   class CalendarBuilder
     CALENDAR_NAME = "Optopus Schedule"
     TIMEZONE = "Europe/London"
+    EVENT_DURATION_SECONDS = 60 * 60
 
     def initialize(site, schedules)
       @site = site
@@ -104,7 +105,7 @@ module ReadingGroupCalendar
 
     def event_lines(event)
       starts_at = starts_at(event)
-      ends_at = starts_at + 3600
+      ends_at = ends_at(starts_at)
       canceled = event["canceled"]
       kind = event["kind"] == "seminar" ? "Seminar" : "Reading Group"
       title = calendar_title(event, kind, canceled)
@@ -130,6 +131,10 @@ module ReadingGroupCalendar
 
     def starts_at(event)
       with_timezone { Time.parse("#{event["date"]} #{event["time"]}") }
+    end
+
+    def ends_at(starts_at)
+      starts_at + EVENT_DURATION_SECONDS
     end
 
     def local_now
