@@ -1,0 +1,99 @@
+name: HT26
+start_date: "2026-01-19"
+events:
+  - date: "2026-01-20"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Nick Gould
+    speaker_affiliation:
+    title: Extended-Krylov-subspace methods for trust-region and norm-regularization subproblems
+    link_url: https://arxiv.org/abs/2511.11135
+    refs:
+      - label: (Al Daas & Gould, 2025)
+        url: https://arxiv.org/abs/2511.11135
+  - date: "2026-01-27"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Sadok Jerad
+    speaker_affiliation:
+    title: Parameter-Free Accelerated Quasi-Newton Method for Nonconvex Optimization
+    link_url: https://arxiv.org/abs/2512.09439
+    refs:
+      - label: (Marumo, 2025)
+        url: https://arxiv.org/abs/2512.09439
+  - date: "2026-02-03"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Karl Welzel
+    speaker_affiliation:
+    title: "A Descent Lemma Beyond Lipschitz Gradient Continuity: First-Order Methods Revisited and Applications"
+    link_url: https://www.jstor.org/stable/26178935
+    refs:
+      - label: (Bauschke et al., 2017)
+        url: https://www.jstor.org/stable/26178935
+  - date: "2026-02-10"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Kate Wenqi Zhu
+    speaker_affiliation:
+    title: A Tight SDP Relaxation for the Cubic-Quartic Regularization Problem
+    link_url: https://arxiv.org/abs/2511.00168
+    refs:
+      - label: (Zhou et al., 2025)
+        url: https://arxiv.org/abs/2511.00168
+  - date: "2026-02-17"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Joseph Webb
+    speaker_affiliation:
+    title: Reverse engineering learned optimizers reveals known and novel mechanisms
+    link_url: https://proceedings.neurips.cc/paper/2021/hash/a57ecd54d4df7d999bd9c5e3b973ec75-Abstract.html
+    refs:
+      - label: (Maheswaranathan et al., 2021)
+        url: https://proceedings.neurips.cc/paper/2021/hash/a57ecd54d4df7d999bd9c5e3b973ec75-Abstract.html
+  - date: "2026-02-24"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Nathaniel Prichard
+    speaker_affiliation:
+    title: "Faithful-Newton Framework: Bridging Inner and Outer Solvers for Enhanced Optimization"
+    link_url: https://arxiv.org/abs/2506.13154
+    refs:
+      - label: (Lim & Roosta, 2025)
+        url: https://arxiv.org/abs/2506.13154
+  - date: "2026-03-03"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Estelle Massart
+    speaker_affiliation:
+    title: Introduction to optimization on manifolds
+    link_url: https://www.nicolasboumal.net/book
+    refs:
+      - label: (Boumal, 2023)
+        url: https://www.nicolasboumal.net/book
+  - date: "2026-03-10"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Tobias Bretschneider
+    speaker_affiliation:
+    title: "Acceleration by Stepsize Hedging: Multi-Step Descent and the Silver Stepsize Schedule"
+    link_url: https://doi.org/10.1145/3708502
+    refs:
+      - label: (Altschuler & Parrilo, 2025)
+        url: https://doi.org/10.1145/3708502

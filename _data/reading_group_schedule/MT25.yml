@@ -1,0 +1,81 @@
+name: MT25
+start_date: "2025-10-13"
+events:
+  - date: "2025-10-14"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Yang Liu
+    speaker_affiliation:
+    title: A Regularized Newton Method for Nonconvex Optimization with Global and Local Complexity Guarantees
+    link_url: https://arxiv.org/abs/2502.04799
+    refs:
+      - label: (Zhou et al., 2025)
+        url: https://arxiv.org/abs/2502.04799
+  - date: "2025-10-21"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Edward Tansley
+    speaker_affiliation:
+    title: "HAWQ: Hessian AWare Quantization of Neural Networks with Mixed-Precision"
+    link_url: https://arxiv.org/abs/1905.03696
+    refs:
+      - label: (Dong et al., 2019)
+        url: https://arxiv.org/abs/1905.03696
+      - label: (ICCV version, 2019)
+        url: https://doi.org/10.1109/ICCV.2019.00038
+  - date: "2025-11-04"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Daniel Cortild
+    speaker_affiliation:
+    title: "New Tight Bounds for SGD without Variance Assumption: A Computer-Aided Lyapunov Analysis"
+    link_url: https://arxiv.org/abs/2505.17965
+    refs:
+      - label: (Cortild et al., 2025)
+        url: https://arxiv.org/abs/2505.17965
+  - date: "2025-11-11"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Joseph Webb
+    speaker_affiliation:
+    title: Second-Order Optimisation for Physics-Informed Neural Networks
+  - date: "2025-11-18"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Jung Huh
+    speaker_affiliation:
+    title: Preconditioning via Randomized Range Deflation (RandRAND)
+    link_url: https://arxiv.org/abs/2509.19747
+    refs:
+      - label: (Balabanov et al., 2025)
+        url: https://arxiv.org/abs/2509.19747
+  - date: "2025-11-25"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Casey Garner
+    speaker_affiliation:
+    title: Overview of eigenvalue programming
+    link_url: https://doi.org/10.1007/s10589-024-00591-7
+    refs:
+      - label: (Ito & Lourenco, 2024)
+        url: https://doi.org/10.1007/s10589-024-00591-7
+  - date: "2025-12-02"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths
+    speaker: Panos Parpas
+    speaker_affiliation:
+    title: Overview of multilevel optimization
