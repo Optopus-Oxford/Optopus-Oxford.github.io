@@ -43,18 +43,18 @@ module ReadingGroupCalendar
   end
 
   class CalendarPage < Jekyll::PageWithoutAFile
-    def initialize(site, schedules)
+    def initialize(site, schedules, name = "optopus.ics")
       @site = site
       @base = site.source
       @dir = "calendars"
-      @name = "optopus.ics"
+      @name = name
 
       process(@name)
       self.content = CalendarBuilder.new(site, schedules).render
       self.data = {
         "layout" => nil,
         "sitemap" => false,
-        "permalink" => "/calendars/optopus.ics",
+        "permalink" => "/calendars/#{@name}",
       }
       self.ext = ".ics"
     end
@@ -85,6 +85,7 @@ module ReadingGroupCalendar
         "X-WR-CALNAME:#{escape(CALENDAR_NAME)}",
         "X-WR-TIMEZONE:#{TIMEZONE}",
       ]
+      lines.concat(timezone_lines)
 
       future_events.each { |event| lines.concat(event_lines(event)) }
 
@@ -106,6 +107,7 @@ module ReadingGroupCalendar
     def event_lines(event)
       starts_at = starts_at(event)
       ends_at = ends_at(starts_at)
+      timestamp = Time.now.utc.strftime("%Y%m%dT%H%M%SZ")
       canceled = event["canceled"]
       kind = event["kind"] == "seminar" ? "Seminar" : "Reading Group"
       title = calendar_title(event, kind, canceled)
@@ -115,9 +117,11 @@ module ReadingGroupCalendar
       lines = [
         "BEGIN:VEVENT",
         "UID:#{uid_for(event)}",
-        "DTSTAMP:#{Time.now.utc.strftime("%Y%m%dT%H%M%SZ")}",
-        "DTSTART;TZID=#{TIMEZONE}:#{starts_at.strftime("%Y%m%dT%H%M%S")}",
-        "DTEND;TZID=#{TIMEZONE}:#{ends_at.strftime("%Y%m%dT%H%M%S")}",
+        "SEQUENCE:1",
+        "DTSTAMP:#{timestamp}",
+        "LAST-MODIFIED:#{timestamp}",
+        "DTSTART;TZID=#{TIMEZONE}:#{format_local_time(starts_at)}",
+        "DTEND;TZID=#{TIMEZONE}:#{format_local_time(ends_at)}",
         "SUMMARY:#{escape(title)}",
         "DESCRIPTION:#{escape(description)}",
         "LOCATION:#{escape(event["room"].to_s)}",
@@ -135,6 +139,33 @@ module ReadingGroupCalendar
 
     def ends_at(starts_at)
       starts_at + EVENT_DURATION_SECONDS
+    end
+
+    def format_local_time(time)
+      with_timezone { time.strftime("%Y%m%dT%H%M%S") }
+    end
+
+    def timezone_lines
+      [
+        "BEGIN:VTIMEZONE",
+        "TZID:#{TIMEZONE}",
+        "X-LIC-LOCATION:#{TIMEZONE}",
+        "BEGIN:DAYLIGHT",
+        "TZOFFSETFROM:+0000",
+        "TZOFFSETTO:+0100",
+        "TZNAME:BST",
+        "DTSTART:19700329T010000",
+        "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU",
+        "END:DAYLIGHT",
+        "BEGIN:STANDARD",
+        "TZOFFSETFROM:+0100",
+        "TZOFFSETTO:+0000",
+        "TZNAME:GMT",
+        "DTSTART:19701025T020000",
+        "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU",
+        "END:STANDARD",
+        "END:VTIMEZONE",
+      ]
     end
 
     def local_now
@@ -241,10 +272,19 @@ module ReadingGroupCalendar
     priority :low
 
     def generate(site)
-      site.pages << CalendarPage.new(site, schedule_terms(site))
+      schedules = schedule_terms(site)
+      site.pages << CalendarPage.new(site, schedules)
+
+      schedules.each do |term, schedule|
+        site.pages << CalendarPage.new(site, [[term, schedule]], "#{slug(term)}.ics")
+      end
     end
 
     private
+
+    def slug(term)
+      term.to_s.downcase.gsub(/[^a-z0-9]+/, "-").gsub(/\A-|-+\z/, "")
+    end
 
     def schedule_terms(site)
       data = site.data["reading_group_schedule"]
