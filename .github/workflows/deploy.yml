@@ -1,6 +1,9 @@
 name: Deploy site
 
 on:
+  schedule:
+    # GitHub schedules run in UTC. This is 04:00 GMT and 05:00 BST.
+    - cron: "0 4 * * *"
   push:
     branches:
       - master
@@ -12,6 +15,7 @@ on:
       - "**.js"
       - "**.liquid"
       - "**/*.md"
+      - "_plugins/**/*.rb"
       - "**.yml"
       - "Gemfile"
       - "Gemfile.lock"
@@ -39,6 +43,7 @@ on:
       - "**.js"
       - "**.liquid"
       - "**/*.md"
+      - "_plugins/**/*.rb"
       - "**.yml"
       - "Gemfile"
       - "Gemfile.lock"

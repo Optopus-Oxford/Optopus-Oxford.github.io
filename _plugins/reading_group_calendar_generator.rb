@@ -43,18 +43,18 @@ module ReadingGroupCalendar
   end
 
   class CalendarPage < Jekyll::PageWithoutAFile
-    def initialize(site, term, schedule)
+    def initialize(site, schedules)
       @site = site
       @base = site.source
       @dir = "calendars"
-      @name = "#{slug(term)}.ics"
+      @name = "optopus.ics"
 
       process(@name)
-      self.content = CalendarBuilder.new(site, term, schedule).render
+      self.content = CalendarBuilder.new(site, schedules).render
       self.data = {
         "layout" => nil,
         "sitemap" => false,
-        "permalink" => "/calendars/#{slug(term)}.ics",
+        "permalink" => "/calendars/optopus.ics",
       }
       self.ext = ".ics"
     end
@@ -62,38 +62,30 @@ module ReadingGroupCalendar
     def output_ext
       ".ics"
     end
-
-    private
-
-    def slug(term)
-      term.to_s.downcase.gsub(/[^a-z0-9]+/, "-").gsub(/\A-|-+\z/, "")
-    end
   end
 
   class CalendarBuilder
     CALENDAR_NAME = "Optopus Schedule"
     TIMEZONE = "Europe/London"
 
-    def initialize(site, term, schedule)
+    def initialize(site, schedules)
       @site = site
-      @term = term
-      @term_name = schedule["name"].to_s.empty? ? term : schedule["name"]
-      @start_date = schedule["start_date"]
-      @events = Array(schedule["events"])
+      @events = schedules.flat_map { |term, schedule| events_for_schedule(term, schedule) }
     end
 
     def render
+      future_events = @events.select { |event| future_event?(event) }.sort_by { |event| starts_at(event) }
       lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
         "PRODID:-//Optopus//Reading Group Schedule//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        "X-WR-CALNAME:#{escape("#{CALENDAR_NAME} #{@term_name}")}",
+        "X-WR-CALNAME:#{escape(CALENDAR_NAME)}",
         "X-WR-TIMEZONE:#{TIMEZONE}",
       ]
 
-      @events.each { |event| lines.concat(event_lines(event)) }
+      future_events.each { |event| lines.concat(event_lines(event)) }
 
       lines << "END:VCALENDAR"
       fold_lines(lines).join("\r\n") + "\r\n"
@@ -101,8 +93,17 @@ module ReadingGroupCalendar
 
     private
 
+    def events_for_schedule(term, schedule)
+      term_name = schedule["name"].to_s.empty? ? term : schedule["name"]
+      Array(schedule["events"]).map { |event| event.merge("_term_name" => term_name) }
+    end
+
+    def future_event?(event)
+      starts_at(event) >= local_now
+    end
+
     def event_lines(event)
-      starts_at = Time.parse("#{event["date"]} #{event["time"]}")
+      starts_at = starts_at(event)
       ends_at = starts_at + 3600
       canceled = event["canceled"]
       kind = event["kind"] == "seminar" ? "Seminar" : "Reading Group"
@@ -125,6 +126,22 @@ module ReadingGroupCalendar
       lines << "URL:#{url}" if url
       lines << "END:VEVENT"
       lines
+    end
+
+    def starts_at(event)
+      with_timezone { Time.parse("#{event["date"]} #{event["time"]}") }
+    end
+
+    def local_now
+      @local_now ||= with_timezone { Time.now }
+    end
+
+    def with_timezone
+      previous_timezone = ENV["TZ"]
+      ENV["TZ"] = TIMEZONE
+      yield
+    ensure
+      ENV["TZ"] = previous_timezone
     end
 
     def description_for(event, kind)
@@ -162,10 +179,6 @@ module ReadingGroupCalendar
       normalized.empty? || normalized.downcase == "to be announced" ? "TBA" : normalized
     end
 
-    def week_number(event)
-      ((Date.parse(event["date"].to_s) - Date.parse(@start_date.to_s)).to_i / 7).floor + 1
-    end
-
     def refs_for(event)
       refs = Array(event["refs"])
       return refs unless refs.empty? && present?(event["link_url"])
@@ -174,7 +187,7 @@ module ReadingGroupCalendar
     end
 
     def uid_for(event)
-      source = [@site.config["url"], @site.config["baseurl"], @term_name, event["date"], event["time"], event["kind"], event["title"]].join("|")
+      source = [@site.config["url"], @site.config["baseurl"], event["_term_name"], event["date"], event["time"], event["kind"], event["title"]].join("|")
       "#{Digest::SHA256.hexdigest(source)[0, 24]}@optopus"
     end
 
@@ -223,9 +236,7 @@ module ReadingGroupCalendar
     priority :low
 
     def generate(site)
-      schedule_terms(site).each do |term, schedule|
-        site.pages << CalendarPage.new(site, term, schedule)
-      end
+      site.pages << CalendarPage.new(site, schedule_terms(site))
     end
 
     private

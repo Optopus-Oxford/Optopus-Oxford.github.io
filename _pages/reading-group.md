@@ -8,6 +8,7 @@ description: Schedule for the Optopus Reading Group.
 ---
 
 {% assign schedule_terms = site.data.reading_group_schedule | schedule_terms_by_start_date %}
+{% assign calendar_url = '/calendars/optopus.ics' | relative_url %}
 
 <div class="schedule-controls" aria-label="Schedule filters">
   <label>
@@ -15,8 +16,6 @@ description: Schedule for the Optopus Reading Group.
     <select id="term-filter">
       {% for term in schedule_terms %}
         {% assign term_name = term[0] %}
-        {% assign calendar_slug = term_name | downcase %}
-        {% assign calendar_url = '/calendars/' | append: calendar_slug | append: '.ics' | relative_url %}
         {% assign term_schedule = term[1] %}
         {% assign term_identifier = term_name | append: ' ' | append: term_schedule.name | upcase %}
         {% assign show_week_numbers = true %}
@@ -25,7 +24,6 @@ description: Schedule for the Optopus Reading Group.
         {% endif %}
         <option
           value="{{ term_name }}"
-          data-calendar-url="{{ calendar_url }}"
           data-start-date="{{ term_schedule.start_date }}"
           data-show-week-numbers="{{ show_week_numbers }}"
         >
@@ -249,6 +247,7 @@ description: Schedule for the Optopus Reading Group.
     };
 
     const termOptions = Array.from(termFilter.options);
+    const calendarUrl = "{{ calendar_url }}";
 
     const parseLocalDate = (dateValue) => {
       const parts = dateValue.split("-").map(Number);
@@ -263,10 +262,6 @@ description: Schedule for the Optopus Reading Group.
     };
 
     const selectedOption = () => termFilter.options[termFilter.selectedIndex];
-
-    const selectedCalendarUrl = () => new URL(selectedOption().dataset.calendarUrl, window.location.href).href;
-
-    const selectedTermName = () => selectedOption().textContent.trim();
 
     const selectedTermFromUrl = () => {
       const params = new URLSearchParams(window.location.search);
@@ -325,8 +320,8 @@ description: Schedule for the Optopus Reading Group.
     };
 
     const renderSubscribeModal = () => {
-      subscribeTitle.textContent = `Subscribe to ${selectedTermName()} calendar`;
-      subscribeUrlInput.value = selectedCalendarUrl();
+      subscribeTitle.textContent = "Subscribe to calendar";
+      subscribeUrlInput.value = new URL(calendarUrl, window.location.href).href;
       subscribeSteps.replaceChildren(
         ...providerSteps[providerSelect.value].map((step) => {
           const item = document.createElement("li");
