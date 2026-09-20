@@ -28,3 +28,11 @@ events:
     speaker: Sara Shashaani
     speaker_affiliation: North Carolina
     title: "Adaptive sampling derivative-free methods for nonconvex optimization"
+  - date: "2026-09-22"
+    time: "11:00"
+    kind: reading-group
+    form: Reading Group
+    room: Maths, L6
+    speaker: Nathaniel Pritchard
+    speaker_affiliation: University of Oxford
+    title: "TBA, on Tensor CUR Approximations (TBC)"
