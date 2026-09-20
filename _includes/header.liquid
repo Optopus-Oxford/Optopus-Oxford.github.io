@@ -3,7 +3,17 @@
     :root {
       --global-code-bg-color: rgba(0, 33, 71, 0.05);
       --global-hover-color: #002147;
+      --global-link-color: #2f80c9;
       --global-theme-color: #002147;
+    }
+
+    .container[role="main"] a:not(.mailing-list-button) {
+      color: var(--global-link-color);
+    }
+
+    .container[role="main"] a:not(.mailing-list-button):hover,
+    .container[role="main"] a:not(.mailing-list-button):focus {
+      color: #1f6fb7;
     }
   </style>
   {% assign root_url = '/' %}

@@ -4,6 +4,7 @@ title: about
 permalink: /
 nav: false
 subtitle: Mathematical Institute, University of Oxford
+noindex: true
 
 profile:
   align: right
@@ -42,13 +43,17 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
 - _Paper Discussion:_ This is the main purpose of the reading group. The presenter selects a paper and communicates it
   with the organizers one week ahead of the discussion. The paper is then circulated to all the members, who can read it
   before the discussion session. The session is dedicated to walking the members through the paper and spark discussions
-  about the topic at hand. The presenter should ideally not be an author of the work.
+  about the topic at hand. The presenter should ideally not be an author of the work. [Suggested Papers]({{ '/suggested-papers/' | relative_url }})
 - _Research Presentations:_ This format is primarily aimed at external presenters. The timeframe of the presentation is
   1h, including questions. The goal is however to generate a discussion with the audience, so typically a prepared
   30-minute presentation is more than enough.
-- _Book Reading:_ It is also possible to devote one or multiple sessions over a term to the reading of a chapter or a
-  selection of chapters of a book. The idea is then that the entire group reads the chapter beforehand, and the
-  presenter leads the discussion during the session.
+
+**Organisers:**
+
+- _2026-2027:_ [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis),
+  [Daniel Cortild](https://daniel.cortild.com), and
+  [Casey Garner](https://www.maths.ox.ac.uk/people/casey.garner).
+- _2025-2026:_ [Karl Welzel](https://karl.welzel.one/).
 
 <style>
   .post .profile {
