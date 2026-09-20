@@ -50,8 +50,8 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
 
 **Organisers:**
 
-- _2026-2027:_ [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis),
-  [Daniel Cortild](https://daniel.cortild.com), and
+- _2026-2027:_ 
+  [Daniel Cortild](https://daniel.cortild.com) and
   [Casey Garner](https://www.maths.ox.ac.uk/people/casey.garner).
 - _2025-2026:_ [Karl Welzel](https://karl.welzel.one/).
 
