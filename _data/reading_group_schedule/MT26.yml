@@ -6,41 +6,45 @@ events:
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
-    speaker: Everyone??
-    speaker_affiliation:
-    title: Short Research Presentations
+    speaker: Yuyang (Amber) Huang
+    speaker_affiliation: University of Oxford
+    title: Optimal Stabilization and Consensus-Based Dynamics for Non-Convex Global Optimization
   - date: "2026-10-20"
+    canceled: true
     time: "11:00"
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
     speaker:
     speaker_affiliation:
-    title:
+    title: Canceled
   - date: "2026-10-27"
     time: "11:00"
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
-    speaker:
-    speaker_affiliation:
-    title:
+    speaker: Jackson Hebner
+    speaker_affiliation: University of Oxford
+    title: Deep Hilbert-Galerkin Methods for Infinite-Dimensional PDEs and Optimal Control
   - date: "2026-11-03"
     time: "11:00"
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
-    speaker:
-    speaker_affiliation:
-    title:
+    speaker: Elizaveta Rebrova
+    speaker_affiliation: University of Oxford
+    title: To be announced
   - date: "2026-11-10"
     time: "11:00"
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
-    speaker:
-    speaker_affiliation:
-    title:
+    speaker: Coralia Cartis
+    speaker_affiliation: University of Oxford
+    title: Open Problems in Optimization
+    refs:
+      - label: (Diakonikolas, 2025)
+        url: https://siagoptimization.github.io/assets/views/ViewsAndNews-33-1.pdf
   - date: "2026-11-17"
     time: "11:00"
     kind: reading-group
@@ -54,14 +58,14 @@ events:
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
-    speaker:
+    speaker: All PhD Students
     speaker_affiliation:
-    title:
+    title: Short Research Overviews from PhD Students of the Group
   - date: "2026-12-01"
     time: "11:00"
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
-    speaker:
-    speaker_affiliation:
+    speaker: Michal Derezinski
+    speaker_affiliation: University of Michigan
     title:
