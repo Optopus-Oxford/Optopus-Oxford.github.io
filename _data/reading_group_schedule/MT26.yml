@@ -9,6 +9,16 @@ events:
     speaker: Yuyang (Amber) Huang
     speaker_affiliation: University of Oxford
     title: Optimal Stabilization and Consensus-Based Dynamics for Non-Convex Global Optimization
+  - date: "2026-10-15"
+    time: "14:00"
+    kind: seminar
+    form: NA Seminar
+    room: RAL, Harwell Campus
+    speaker:  Ruth Misener
+    speaker_affiliation: Imperial College London
+    title: "Optimizing over graphs: Challenges, Formulations, and Applications"
+    abstract: "Applications involving optimization over graphs include molecular design, graph neural network verification, neural architecture search, etc. This talk discusses formulating graph spaces using mixed-integer optimization and incorporating application-specific constraints. We discuss computational challenges with these mixed-integer optimization formulations and zoom in on the practical implications for these applications. We mention what has been done (by both ourselves and others) and what other research still needs to be done.
+    Co-authors: Shiqiang Zhang, Yilin Xie, Christopher Hojny, Juan Campos, Jixiang Qing, Christian Feldmann, David Walz, Frederik Sandfort, Miriam Mathea, Calvin Tsay"
   - date: "2026-10-20"
     canceled: true
     time: "11:00"
