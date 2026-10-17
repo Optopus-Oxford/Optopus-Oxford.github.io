@@ -9,6 +9,52 @@ events:
     speaker: Yuyang (Amber) Huang
     speaker_affiliation: University of Oxford
     title: Optimal Stabilization and Consensus-Based Dynamics for Non-Convex Global Optimization
+  - date: "2026-10-15"
+    time: "14:00"
+    kind: seminar
+    form: NA Seminar
+    room: RAL, Harwell Campus
+    speaker:  Ruth Misener
+    speaker_affiliation: Imperial College London
+    title: "Optimizing over graphs: Challenges, Formulations, and Applications"
+    abstract: "Applications involving optimization over graphs include molecular design, graph neural network verification, neural architecture search, etc. This talk discusses formulating graph spaces using mixed-integer optimization and incorporating application-specific constraints. We discuss computational challenges with these mixed-integer optimization formulations and zoom in on the practical implications for these applications. We mention what has been done (by both ourselves and others) and what other research still needs to be done. Co-authors: Shiqiang Zhang, Yilin Xie, Christopher Hojny, Juan Campos, Jixiang Qing, Christian Feldmann, David Walz, Frederik Sandfort, Miriam Mathea, Calvin Tsay"
+  - date: "2026-10-16"
+    time: "11:00"
+    kind: seminar
+    form: Ai Security Reading Group
+    room: Maths, L3
+    speaker: Thomas Strohmer
+    speaker_affiliation: UC Davis, USA
+    title: "Can AI Truly Forget? A Mathematical Framework for Machine Unlearning"
+    abstract: >-
+      As AI models are trained on ever-expanding datasets, the ability to remove the influence of
+      specific data from trained models has become essential for privacy protection and regulatory
+      compliance. Unlearning addresses this challenge by selectively removing parametric knowledge
+      from the trained models without retraining from scratch, which is critical for
+      resource-intensive models such as Large Language Models (LLMs). However, existing unlearning
+      methods often severely degrade model performance by removing more information than necessary
+      when attempting to "forget" specific data. We introduce a mathematical framework based on
+      information-theoretic regularization that can accommodate different types of machine
+      unlearning, such as feature unlearning and data point unlearning. Our theoretical analysis
+      reveals intriguing connections between machine unlearning, information theory, optimal
+      transport, and extremal sigma algebras. For LLMs, we propose Forgetting-MarI, an unlearning
+      framework that provably removes only the additional (marginal) information contributed by the
+      data to be unlearned, while preserving the information supported by the data to be retained.
+      Extensive experiments confirm that our approach outperforms current state-of-the-art
+      unlearning methods, delivering reliable forgetting and better preserved general model
+      performance across diverse benchmarks. This advancement represents an important step toward
+      making AI systems more controllable and compliant with privacy and copyright regulations
+      without compromising their effectiveness. We will also discuss applications in machine
+      learning driven scientific discovery.
+  - date: "2026-10-19"
+    time: "14:00"
+    kind: seminar
+    form: ML&DS Seminar
+    room: Maths, L3
+    speaker:  Ian Osband
+    speaker_affiliation: Google DeepMind, London
+    title: "The Price of Learning"
+    abstract: "Policy gradient sits at the heart of modern RL, including LLM post-training. Yet on image classification, where the gradient of accuracy is exact, it loses to cross-entropy, even on accuracy. Our explanation is that learning is a sequential resource allocation problem. Data, compute and capacity are scarce, and each update sets where the next one starts. Policy gradient ignores this and spends greedily. This talk presents simple methods that price learning, and shows how they improve robustness, compute efficiency and accuracy."
   - date: "2026-10-20"
     canceled: true
     time: "11:00"
