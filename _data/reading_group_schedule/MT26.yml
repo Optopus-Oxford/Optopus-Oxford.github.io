@@ -96,9 +96,9 @@ events:
     kind: reading-group
     form: Reading Group
     room: Maths, S2.37
-    speaker:
-    speaker_affiliation:
-    title:
+    speaker: Torkel Loman
+    speaker_affiliation: University of Oxford
+    title: To be announced
   - date: "2026-11-24"
     time: "11:00"
     kind: reading-group
