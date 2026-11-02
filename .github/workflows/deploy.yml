@@ -73,6 +73,9 @@ jobs:
         with:
           ruby-version: "3.3.5"
           bundler-cache: true
+      - name: Validate site YAML
+        run: |
+          bundle exec ruby -rpsych -e '(["_config.yml"] + Dir["_data/**/*.{yml,yaml}"]).each { |path| Psych.parse_file(path) }'
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
         with:
