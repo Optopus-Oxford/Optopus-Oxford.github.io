@@ -45,7 +45,7 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
   with the organizers one week ahead of the discussion. The paper is then circulated to all the members, who can read it
   before the discussion session. The session is dedicated to walking the members through the paper and spark discussions
   about the topic at hand. [Suggested Papers]({{ '/suggested-papers/' | relative_url }})
-- _Short Research Presentations:_ Once a term, the students of the reading group give a short (~10 minutes) presentation
+- _Short Research Presentations:_ Once a term, the students of the group give a short (~10 minutes) presentation
   about work published since the last such session.
 
 **Organisers:**
