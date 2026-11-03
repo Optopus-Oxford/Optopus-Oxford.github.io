@@ -25,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-**Optopus** is the Optimization Reading Group at the University of Oxford, hosted across the Numerical Analysis and
+**Optopus** is the Optimization Group at the University of Oxford, hosted across the Numerical Analysis and
 ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis).
 
 **Research Interests**: Nonconvex Optimization, Global Optimization, and Tensor Optimization.
@@ -36,17 +36,17 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
 
 <div class="profile-clear"></div>
 
-**Presentation Formats:** The Reading Group encapsulates many different formats of presentations:
+**Presentation Formats:** The Optimization Group encapsulates many different formats of presentations:
 
-- _Short Research Presentations:_ Once a term, the students of the reading group give a short (~10 minutes) presentation
-  about work published since the last such session.
-- _Paper Discussion:_ This is the main purpose of the reading group. The presenter selects a paper and communicates it
-  with the organizers one week ahead of the discussion. The paper is then circulated to all the members, who can read it
-  before the discussion session. The session is dedicated to walking the members through the paper and spark discussions
-  about the topic at hand. The presenter should ideally not be an author of the work. [Suggested Papers]({{ '/suggested-papers/' | relative_url }})
-- _Research Presentations:_ This format is primarily aimed at external presenters. The timeframe of the presentation is
+- _Research Presentations:_ The timeframe of the presentation is
   1h, including questions. The goal is however to generate a discussion with the audience, so typically a prepared
   30-minute presentation is more than enough.
+- _Paper Discussion:_ The presenter selects a paper and communicates it
+  with the organizers one week ahead of the discussion. The paper is then circulated to all the members, who can read it
+  before the discussion session. The session is dedicated to walking the members through the paper and spark discussions
+  about the topic at hand. [Suggested Papers]({{ '/suggested-papers/' | relative_url }})
+- _Short Research Presentations:_ Once a term, the students of the reading group give a short (~10 minutes) presentation
+  about work published since the last such session.
 
 **Organisers:**
 
