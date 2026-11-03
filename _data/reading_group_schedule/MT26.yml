@@ -86,6 +86,15 @@ events:
       Specifically, I will first discuss online Newton methods with accelerated sketch-and-project as the inner solver. Here inexactness costs statistical efficiency, which momentum acceleration helps recover at no extra cost per step. I will then discuss ongoing work on inexact proximal point methods, including ADMM and other splitting schemes. There, a relative error criterion yields bounds on the total inner work and guidance on how inexact the inner solves can be.
       
       This is based on the joint work with Michal Derezinski, Sen Na, Xinchen Du, Bartolomeo Stellato and Pranav Reddy.
+  - date: "2026-11-05"
+    time: "14:00"
+    kind: seminar
+    form: Seminar
+    room: Maths, L3
+    speaker: Sara Shashaani
+    speaker_affiliation: North Carolina State University
+    title: Adaptive Sampling and Regularization for Stochastic Trust-region Methods
+    abstract: Trust-region methods have proven highly effective for unconstrained nonconvex stochastic optimization problems where objective and gradient information are available only through noisy stochastic oracles. ASTRO is a class of adaptive sampling trust-region methods that dynamically determine sampling effort while constructing local quadratic models from noisy function and gradient observations. By exploiting dependence among samples and the stochastic structure of the problem, ASTRO achieves strong convergence and complexity guarantees. Its derivative-free variant, ASTRO-DF, relies solely on noisy function evaluations and also enjoys almost-sure convergence guarantees.
   - date: "2026-11-10"
     time: "11:00"
     kind: reading-group
