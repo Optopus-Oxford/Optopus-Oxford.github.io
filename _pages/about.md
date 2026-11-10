@@ -26,9 +26,13 @@ latest_posts:
 ---
 
 **Optopus** is the Optimization Group at the University of Oxford, hosted across the Numerical Analysis and
-ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis).
+ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis). It brings together around 25 PhD
+students, postdoctoral researchers and faculty members.
+We meet weekly during the eight-week Oxford term for research talks and discussion on mathematical optimization,
+typically attracting 15–20 attendees. Sessions feature work in progress, new methods and open problems, with questions
+and contributions encouraged throughout.
 
-**Research Interests**: Nonconvex Optimization, Global Optimization, and Tensor Optimization.
+**Research Interests**: Nonconvex Optimization, Global Optimization, Stochastic Optimization, and Tensor Optimization.
 
 <p>
   <a class="mailing-list-button" href="mailto:optimisation-reading-group-subscribe@maths.ox.ac.uk?subject=Subscribe">Subscribe to Mailing List</a>
@@ -38,19 +42,15 @@ ML&DS Groups, by [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cart
 
 **Presentation Formats:** The Optimization Group encapsulates many different formats of presentations:
 
-- _Research Presentations:_ The timeframe of the presentation is
+- _Research Presentations and Discussion:_ Main format. The timeframe of the presentation is
   1h, including questions. The goal is however to generate a discussion with the audience, so typically a prepared
-  30-minute presentation is more than enough.
-- _Paper Discussion:_ The presenter selects a paper and communicates it
-  with the organizers one week ahead of the discussion. The paper is then circulated to all the members, who can read it
-  before the discussion session. The session is dedicated to walking the members through the paper and spark discussions
-  about the topic at hand. [Suggested Papers]({{ '/suggested-papers/' | relative_url }})
+  30-minute presentation is more than enough. The research presented need not be the presenter's own research.
 - _Short Research Presentations:_ Once a term, the students of the group give a short (~10 minutes) presentation
   about work published since the last such session.
 
 **Organisers:**
 
-- _2026-2027:_ 
+- _2026-2027:_
   [Daniel Cortild](https://daniel.cortild.com) and
   [Casey Garner](https://www.maths.ox.ac.uk/people/casey.garner).
 - _2025-2026:_ [Karl Welzel](https://karl.welzel.one/).

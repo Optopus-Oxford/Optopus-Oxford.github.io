@@ -64,6 +64,7 @@ events:
     speaker:
     speaker_affiliation:
     title: Canceled
+    note: Postponed to Week 9
   - date: "2026-10-27"
     time: "11:00"
     kind: reading-group
@@ -113,7 +114,8 @@ events:
     room: Maths, S2.37
     speaker: Torkel Loman
     speaker_affiliation: University of Oxford
-    title: To be announced
+    title: Function inference and identifiability for differential equations
+    abstract: "Mathematical models are used to understand, predict and control systems, from the spread of epidemics to the flight of aircraft. Building a model, however, requires the system's mechanisms to be known, which rules out many applications, such as a newly emerged disease whose transmission is not yet understood. The nascent field of scientific machine learning (SciML) addresses this through hybrid mathematical/AI models, which describe the known mechanisms with mathematical equations and learn the unknown parts with neural networks. Their flexibility comes at a price: hybrid models are prone to fitting the data perfectly while learning erroneous system dynamics. In this talk, I will introduce hybrid modelling and identifiability analysis, which tells us when such a model can learn the true dynamics and, after training, whether it has."
   - date: "2026-11-24"
     time: "11:00"
     kind: reading-group
@@ -129,4 +131,9 @@ events:
     room: Maths, S2.37
     speaker: Michal Derezinski
     speaker_affiliation: University of Michigan
-    title:
+    title: Perfect Parallelization in Mini-Batch SGD with Classical Momentum Acceleration
+    abstract: >
+      Accelerating stochastic gradient methods with classical momentum schemes, such as Polyak's heavy ball, has proven highly successful in training large-scale machine learning models, particularly when combined with the hardware acceleration of large mini-batch computations. Yet, the effect of classical momentum on stochastic mini-batch optimization has been poorly understood theoretically, with prior works requiring strong noise assumptions and extremely large mini-batches. In this work, we develop a general theory of stochastic momentum acceleration for optimizing over quadratics in the interpolation regime, a popular abstraction for studying deep learning dynamics which also includes classical methods such as randomized Kaczmarz and coordinate descent. Our framework encompasses both heavy ball and Nesterov-style momentum, allows for arbitrary mini-batch sizes, and makes minimal assumptions on the stochastic noise. In particular, we show that acceleration from classical momentum is directly proportional to the gradient mini-batch size (up to a natural saturation point), thereby enabling perfect parallelization of mini-batch computations. Our theory also provides a simple choice for the momentum parameter, which is shown to be effective empirically.
+    refs:
+      - label: (Garg and Derezinski, 2026)
+        url: https://arxiv.org/abs/2605.18609

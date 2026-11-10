@@ -36,9 +36,9 @@ description: Schedule for the Optopus Reading Group.
   <label>
     <span>Activity</span>
     <select id="kind-filter">
-      <option value="all" selected>All activities</option>
       <option value="reading-group">Reading Group</option>
       <option value="seminar">Seminar</option>
+      <option value="all" selected>All activities</option>
     </select>
   </label>
 
