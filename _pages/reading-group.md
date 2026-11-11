@@ -4,7 +4,6 @@ title: Schedule
 permalink: /reading-group/
 nav: true
 nav_order: 1
-description: Schedule for the Optopus Reading Group.
 ---
 
 {% assign schedule_terms = site.data.reading_group_schedule | schedule_terms_by_start_date %}
@@ -36,9 +35,9 @@ description: Schedule for the Optopus Reading Group.
   <label>
     <span>Activity</span>
     <select id="kind-filter">
-      <option value="reading-group">Reading Group</option>
+      <option value="reading-group" selected>Reading Group</option>
       <option value="seminar">Seminar</option>
-      <option value="all" selected>All activities</option>
+      <option value="all">All activities</option>
     </select>
   </label>
 
@@ -191,10 +190,12 @@ description: Schedule for the Optopus Reading Group.
             {% if event.canceled %}
               <span class="muted">-</span>
             {% elsif event.speaker and event.speaker != '' %}
-              {{ event.speaker }}
-              {% if event.speaker_affiliation and event.speaker_affiliation != '' %}
-                <span class="muted">({{ event.speaker_affiliation }})</span>
-              {% endif %}
+              <span class="speaker-name">
+                {{ event.speaker }}
+                {% if event.speaker_affiliation and event.speaker_affiliation != '' %}
+                  <span class="muted">({{ event.speaker_affiliation }})</span>
+                {% endif %}
+              </span>
             {% else %}
               <span class="muted">TBA</span>
             {% endif %}
@@ -316,7 +317,7 @@ description: Schedule for the Optopus Reading Group.
     };
 
     const selectDefaultKind = () => {
-      kindFilter.value = selectedKindFromUrl() || "all";
+      kindFilter.value = selectedKindFromUrl() || "reading-group";
     };
 
     const renderSubscribeModal = () => {
@@ -463,9 +464,16 @@ description: Schedule for the Optopus Reading Group.
   }
 
   .schedule-controls select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--global-bg-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23888' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
     border: 1px solid var(--global-divider-color);
     border-radius: 6px;
-    padding: 0.45rem 0.55rem;
+    color: var(--global-text-color);
+    padding: 0.45rem 2rem 0.45rem 0.55rem;
   }
 
   .subscribe-button {
@@ -796,9 +804,28 @@ description: Schedule for the Optopus Reading Group.
   }
 
   @media (max-width: 760px) {
+    .schedule-controls {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+    }
+
+    .schedule-controls label {
+      min-width: 0;
+    }
+
+    .schedule-controls select {
+      width: 100%;
+    }
+
     .subscribe-button {
+      grid-column: 1 / -1;
       margin-left: 0;
       width: 100%;
+    }
+
+    .schedule-table tbody tr td:first-child {
+      border-top: 0;
     }
 
     .subscribe-url-row {
@@ -820,6 +847,10 @@ description: Schedule for the Optopus Reading Group.
     }
 
     .schedule-table thead {
+      display: none;
+    }
+
+    .schedule-table tr[hidden] {
       display: none;
     }
 
@@ -847,9 +878,32 @@ description: Schedule for the Optopus Reading Group.
       text-transform: uppercase;
     }
 
-    .talk-cell {
-      display: grid;
-      gap: 0.45rem;
+    .schedule-table td[data-label="Week"],
+    .schedule-table td[data-label="Date"],
+    .schedule-table td[data-label="Talk"] {
+      align-items: baseline;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem 0.45rem;
+    }
+
+    .schedule-table td[data-label="Date"] .date-time-code,
+    .schedule-table td[data-label="Date"] .room-code {
+      display: inline;
+      margin-top: 0;
+    }
+
+    .schedule-table td[data-label="Talk"] .talk-cell {
+      display: contents;
+    }
+
+    .schedule-table td[data-label="Talk"] .event-chip {
+      font-size: 0.6rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .schedule-table td[data-label="Talk"] .talk-copy {
+      flex: 0 0 100%;
     }
   }
 </style>
